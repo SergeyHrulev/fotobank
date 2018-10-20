@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/photograph/info', 'HomeController@personalInfo')->name('photograph.info');
+Route::get('/photograph/save', 'HomeController@storeUserInfo')->name('photograph.save');
 
 Auth::routes();
 

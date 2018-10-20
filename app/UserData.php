@@ -17,6 +17,7 @@ class UserData extends Model
         'phone',
         'site',
         'about_me',
+        'city',
         'address',
         'show_orders_distance',
         'min_price',
@@ -27,6 +28,6 @@ class UserData extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
