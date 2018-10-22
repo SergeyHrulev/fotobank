@@ -6,7 +6,6 @@
         <div class="row">
             <div class="col-3">
                 <div class="user-page__sidebar">
-
                     <div class="user-page__sidebar-content">
                         <div class="user-page__user user-page__block">
                             <div class="pa-user__pic">
@@ -15,11 +14,12 @@
                                     <img src="{{ asset('img/user-no-photo.svg') }}" alt="">
                                 </label>
                             </div>
+
                             <div class="pa-user__info">
                                 <input class="pa-input" name="name" type="text" placeholder="Имя" value="{{ $user[0]->name }}">
-                                <input class="pa-input" type="text" placeholder="Фамилия" name="last_name" value="{{ $user[0]->userData->last_name }}">
+                                <input class="pa-input" type="text" placeholder="Фамилия" name="last_name" value="{{ $user[0]->userData !== null ? $user[0]->userData->last_name : '' }}">
                                 <div class="pa-user__birthday">
-                                    <input id="pa-birthday" class="pa-input pa-user__birthday" type="text" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData->birth_date }}">
+                                    <input id="pa-birthday" class="pa-input pa-user__birthday" type="text" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">
                                 </div>
                             </div>
                             <div class="pa-user__experience">
@@ -33,9 +33,9 @@
                         <div class="user-page__contacts user-page__block">
                             <div class="user-page__block-content">
                                 <div class="pa-user__contacts">
-                                    <input class="pa-input" type="phone" name="phone" placeholder="Телефон для связи" value="{{ $user[0]->userData->phone }}">
+                                    <input class="pa-input" type="phone" name="phone" placeholder="Телефон для связи" value="{{ $user[0]->userData !== null ? $user[0]->userData->phone : '' }}">
                                     <input class="pa-input" name="email" type="email" placeholder="email" value="{{ $user[0]->email }}">
-                                    <input class="pa-input" type="text" name="site" placeholder="Сайт" value="{{ $user[0]->userData->site }}">
+                                    <input class="pa-input" type="text" name="site" placeholder="Сайт" value="{{ $user[0]->userData !== null ? $user[0]->userData->site : '' }}">
                                 </div>
                             </div>
 
@@ -62,7 +62,7 @@
                         <div class="user-page__about pa-user__about user-page__block">
                             <div class="user-page__block-content">
                                 <div class="user-page__block-caption">Обо мне</div>
-                                <textarea name="about_me" id="" cols="30" rows="10" class="pa-textarea" placeholder="Добавьте краткое описание (не более 72 символов)"></textarea>
+                                <textarea name="about_me" id="" cols="30" rows="10" class="pa-textarea" placeholder="Добавьте краткое описание (не более 72 символов)">{{ $user[0]->userData !== null ? $user[0]->userData->about_me : '' }}</textarea>
                                 <div class="pa-user__features">
                                     <div class="pa-user__features-caption">Выберите соответствующие пункты (не более 5-ти)</div>
                                     <div class="pa-user__features-content sortable">
@@ -84,8 +84,8 @@
                             <div class="user-page__block-content">
                                 <div class="user-page__block-caption">Ваш город</div>
                                 <div class="pa-user__city-info">
-                                    <input class="pa-input" type="text" name="city" placeholder="Ваш город" value="{{ $user[0]->userData->city }}">
-                                    <input class="pa-input" type="text" name="address" placeholder="Адрес" value="{{ $user[0]->userData->address }}">
+                                    <input class="pa-input" type="text" name="city" placeholder="Ваш город" value="{{ $user[0]->userData !== null ? $user[0]->userData->city : ''}}">
+                                    <input class="pa-input" type="text" name="address" placeholder="Адрес" value="{{ $user[0]->userData !== null ? $user[0]->userData->address : '' }}">
                                 </div>
                                 <div class="pa-user__city-radius">
                                     <span class="pa-user__city-radius-text">Показывать заявки в радиусе: </span>
